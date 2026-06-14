@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新疆伊犁 · 10天自驾旅行手册</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF7F0;
+    --warm-white: #FEFCF8;
+    --sand: #E8DFD0;
+    --gold: #C9964A;
+    --gold-light: #F0D9B0;
+    --gold-dark: #8A6220;
+    --terracotta: #C4653A;
+    --terra-light: #F2E0D5;
+    --brown: #5C3D1E;
+    --text-dark: #2A1F0E;
+    --text-mid: #6B5340;
+    --text-light: #9C8570;
+    --green-muted: #7A9470;
+    --blue-muted: #5A7D9A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--brown);
+    color: var(--warm-white);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 60px,
+      rgba(201,150,74,0.06) 60px, rgba(201,150,74,0.06) 61px
+    );
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--warm-white);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(254,252,248,0.65);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: inline-flex;
+    gap: 0;
+    border: 1px solid rgba(201,150,74,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hero-stat {
+    padding: 14px 28px;
+    border-right: 1px solid rgba(201,150,74,0.3);
+    text-align: center;
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold);
+    font-family: 'Noto Serif SC', serif;
+  }
+  .hero-stat-label {
+    display: block;
+    font-size: 11px;
+    color: rgba(254,252,248,0.5);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  /* NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--sand);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text-mid);
+    border: none;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .nav-btn:hover { color: var(--gold-dark); }
+  .nav-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold); font-weight: 500; }
+
+  /* MAIN LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* OVERVIEW SECTION */
+  .section { padding: 60px 0; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 32px;
+  }
+
+  /* ROUTE MAP SVG */
+  .map-wrap {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .map-wrap h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    color: var(--brown);
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  /* SPOT CARDS GRID */
+  .spots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .spot-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 6px;
+    padding: 16px;
+    position: relative;
+  }
+  .spot-num {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .spot-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 6px;
+  }
+  .spot-desc {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .spot-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 400;
+  }
+  .tag-lake { background: #DFF0F5; color: #2A6A82; }
+  .tag-mountain { background: #E8F0E3; color: #3A6030; }
+  .tag-grass { background: #EDF5E4; color: #4A7040; }
+  .tag-culture { background: #F5EDE0; color: #8A5820; }
+  .tag-canyon { background: #F0E8E0; color: #7A4820; }
+
+  /* ITINERARY DAYS */
+  .day-block {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0;
+    margin-bottom: 8px;
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .day-block:hover { box-shadow: 0 2px 12px rgba(92,61,30,0.08); }
+  .day-label {
+    background: var(--brown);
+    color: var(--warm-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+    text-align: center;
+  }
+  .day-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .day-word {
+    font-size: 10px;
+    color: rgba(254,252,248,0.5);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .day-date {
+    font-size: 11px;
+    color: rgba(254,252,248,0.6);
+    margin-top: 6px;
+  }
+  .day-content { padding: 20px 24px; }
+  .day-route {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .day-route-arrow { color: var(--gold); }
+  .day-rows { display: flex; flex-direction: column; gap: 8px; }
+  .day-row {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    align-items: start;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .day-row:last-child { border-bottom: none; }
+  .row-time { color: var(--text-light); font-size: 12px; white-space: nowrap; }
+  .row-content { color: var(--text-dark); line-height: 1.6; }
+  .row-content strong { color: var(--brown); font-weight: 500; }
+  .row-drive {
+    font-size: 11px;
+    background: var(--gold-light);
+    color: var(--gold-dark);
+    padding: 2px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .ticket-badge {
+    display: inline-block;
+    font-size: 10px;
+    background: var(--terra-light);
+    color: var(--terracotta);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .free-badge {
+    display: inline-block;
+    font-size: 10px;
+    background: #E3F0E3;
+    color: #3A7040;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .sleep-row {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sleep-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* GAODE MAP LINKS */
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--blue-muted);
+    text-decoration: none;
+    border: 1px solid #B8CFDF;
+    border-radius: 3px;
+    padding: 3px 10px;
+    background: #F0F5F9;
+    transition: all 0.15s;
+  }
+  .nav-link:hover {
+    background: #DFF0F5;
+    border-color: var(--blue-muted);
+  }
+  .nav-link svg { flex-shrink: 0; }
+
+  /* TIPS */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .tip-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .tip-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+  .tip-body {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* BUDGET */
+  .budget-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--sand);
+    font-size: 13px;
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-item { color: var(--text-dark); }
+  .budget-note { color: var(--text-light); font-size: 11px; }
+  .budget-amt { color: var(--brown); font-weight: 500; font-family: 'Noto Serif SC', serif; }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: rgba(254,252,248,0.5);
+    text-align: center;
+    padding: 32px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  footer strong { color: var(--gold); font-weight: 400; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--sand);
+    margin: 0;
+  }
+
+  /* 路线示意图 */
+  .route-svg-wrap { overflow-x: auto; }
+  svg text { font-family: 'Noto Sans SC', sans-serif; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 40px; }
+    .container { padding: 0 20px; }
+    .sticky-nav { padding: 0 20px; }
+    .hero-stats { flex-wrap: wrap; }
+    .day-block { grid-template-columns: 70px 1fr; }
+    .day-row { grid-template-columns: 50px 1fr; }
+    .row-drive { display: none; }
+    .day-num { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">自驾旅行手册 · 2025</div>
+  <h1>新疆伊犁<br>十日自驾</h1>
+  <p class="hero-sub">赛里木湖 · 夏塔雪山 · 那拉提草原 · 独库公路<br>6月23日 — 7月2日</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">10</span>
+      <span class="hero-stat-label">天</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">2300</span>
+      <span class="hero-stat-label">公里</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">9</span>
+      <span class="hero-stat-label">大景区</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">¥800</span>
+      <span class="hero-stat-label">门票/人</span>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="scrollTo('overview')">路线概览</button>
+  <button class="nav-btn" onclick="scrollTo('itinerary')">每日行程</button>
+  <button class="nav-btn" onclick="scrollTo('navigation')">导航地点</button>
+  <button class="nav-btn" onclick="scrollTo('tips')">旅行贴士</button>
+  <button class="nav-btn" onclick="scrollTo('budget')">门票费用</button>
+</nav>
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-label">路线概览</div>
+    <div class="section-title">环线一览</div>
+
+    <div class="map-wrap">
+      <h3>路线示意图（顺时针环线）</h3>
+      <div class="route-svg-wrap">
+        <svg viewBox="0 0 900 420" width="100%" xmlns="http://www.w3.org/2000/svg" style="min-width:600px">
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#C9964A"/>
+            </marker>
+          </defs>
+          <!-- 背景山脉装饰 -->
+          <path d="M0,320 L80,260 L140,300 L220,230 L290,280 L370,200 L440,250 L520,180 L600,240 L680,200 L760,250 L840,210 L900,240 L900,420 L0,420Z" fill="#F5EDE0" opacity="0.5"/>
+          <path d="M0,360 L100,320 L200,345 L320,300 L420,330 L550,295 L660,320 L780,300 L900,315 L900,420 L0,420Z" fill="#EDE3D5" opacity="0.6"/>
+
+          <!-- 路线连线 -->
+          <!-- 乌鲁木齐→赛里木湖 -->
+          <path d="M780,80 Q700,60 580,110" stroke="#C9964A" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+          <!-- 赛里木湖→伊宁 -->
+          <path d="M560,130 Q520,155 460,160" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 伊宁→特克斯 -->
+          <path d="M440,175 Q430,210 420,240" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 特克斯→昭苏 -->
+          <path d="M408,260 Q390,280 360,295" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 昭苏→夏塔 -->
+          <path d="M345,310 Q320,330 290,345" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 夏塔→那拉提（折回） -->
+          <path d="M310,340 Q380,310 460,280" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 那拉提→巴音布鲁克 -->
+          <path d="M480,270 Q510,280 535,285" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 巴音布鲁克→库车 -->
+          <path d="M560,290 Q620,280 670,255" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+          <!-- 库车→乌鲁木齐 -->
+          <path d="M690,240 Q750,170 780,100" stroke="#C9964A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+          <!-- 城市节点 -->
+          <!-- 乌鲁木齐 起终点 -->
+          <circle cx="790" cy="75" r="18" fill="#5C3D1E"/>
+          <text x="790" y="79" text-anchor="middle" fill="#F0D9B0" font-size="10" font-weight="600">起/终</text>
+          <text x="790" y="50" text-anchor="middle" fill="#5C3D1E" font-size="12" font-weight="600">乌鲁木齐</text>
+
+          <!-- 赛里木湖 -->
+          <circle cx="568" cy="118" r="14" fill="#5A7D9A"/>
+          <text x="568" y="122" text-anchor="middle" fill="white" font-size="9">D1-2</text>
+          <text x="568" y="98" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">赛里木湖</text>
+
+          <!-- 伊宁 -->
+          <circle cx="448" cy="165" r="13" fill="#7A9470"/>
+          <text x="448" y="169" text-anchor="middle" fill="white" font-size="9">D3</text>
+          <text x="448" y="145" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">伊宁</text>
+
+          <!-- 特克斯 -->
+          <circle cx="415" cy="250" r="13" fill="#C9964A"/>
+          <text x="415" y="254" text-anchor="middle" fill="white" font-size="9">D4</text>
+          <text x="415" y="230" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">特克斯</text>
+
+          <!-- 昭苏 -->
+          <circle cx="352" cy="302" r="13" fill="#C4653A"/>
+          <text x="352" y="306" text-anchor="middle" fill="white" font-size="9">D4</text>
+          <text x="310" y="302" text-anchor="end" fill="#2A1F0E" font-size="11" font-weight="500">昭苏</text>
+
+          <!-- 夏塔 -->
+          <circle cx="285" cy="348" r="13" fill="#C4653A"/>
+          <text x="285" y="352" text-anchor="middle" fill="white" font-size="9">D5</text>
+          <text x="285" y="372" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">夏塔</text>
+
+          <!-- 那拉提 -->
+          <circle cx="470" cy="275" r="14" fill="#5A7D9A"/>
+          <text x="470" y="279" text-anchor="middle" fill="white" font-size="9">D6-7</text>
+          <text x="470" y="255" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">那拉提</text>
+
+          <!-- 巴音布鲁克 -->
+          <circle cx="548" cy="288" r="14" fill="#5A7D9A"/>
+          <text x="548" y="292" text-anchor="middle" fill="white" font-size="9">D8</text>
+          <text x="548" y="315" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">巴音布鲁克</text>
+
+          <!-- 库车 -->
+          <circle cx="680" cy="245" r="13" fill="#7A9470"/>
+          <text x="680" y="249" text-anchor="middle" fill="white" font-size="9">D9</text>
+          <text x="680" y="225" text-anchor="middle" fill="#2A1F0E" font-size="11" font-weight="500">库车</text>
+
+          <!-- 天数标注 -->
+          <text x="700" y="60" fill="#C9964A" font-size="10">D1 约7h · 600km</text>
+          <text x="490" y="108" fill="#C9964A" font-size="10">D2 40min</text>
+          <text x="430" y="195" fill="#C9964A" font-size="10">D3 1.5h</text>
+          <text x="350" y="250" fill="#C9964A" font-size="10">D4 1h</text>
+          <text x="295" y="330" fill="#C9964A" font-size="10">1h</text>
+          <text x="375" y="295" fill="#C9964A" font-size="10">D6 3.5h</text>
+          <text x="500" y="270" fill="#C9964A" font-size="10">D8 2.5h</text>
+          <text x="600" y="256" fill="#C9964A" font-size="10">D9 独库公路 5h</text>
+          <text x="730" y="180" fill="#C9964A" font-size="10">D10 4.5h</text>
+
+          <!-- 图例 -->
+          <rect x="20" y="20" width="160" height="60" rx="3" fill="white" stroke="#E8DFD0" stroke-width="1"/>
+          <line x1="35" y1="38" x2="65" y2="38" stroke="#C9964A" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="72" y="42" fill="#6B5340" font-size="10">自驾路线</text>
+          <circle cx="45" cy="58" r="8" fill="#5C3D1E"/>
+          <text x="45" y="62" text-anchor="middle" fill="#F0D9B0" font-size="7">起/终</text>
+          <text x="72" y="62" fill="#6B5340" font-size="10">起终点（乌鲁木齐）</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 景点卡片 -->
+    <div class="spots-grid">
+      <div class="spot-card">
+        <div class="spot-num">D1 · D2</div>
+        <div class="spot-name">赛里木湖</div>
+        <div class="spot-desc">大西洋最后一滴眼泪，雪山环绕的高山湖泊，环湖90km自驾。</div>
+        <div class="spot-tags"><span class="tag tag-lake">高山湖泊</span><span class="tag tag-mountain">雪山</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D2 · 途经</div>
+        <div class="spot-name">果子沟大桥</div>
+        <div class="spot-desc">连霍高速上的工程奇迹，可俯瞰深谷全貌。</div>
+        <div class="spot-tags"><span class="tag tag-culture">免费打卡</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D3</div>
+        <div class="spot-name">伊宁市</div>
+        <div class="spot-desc">六星街多民族建筑群，喀赞其民俗区，伊犁文化中心。</div>
+        <div class="spot-tags"><span class="tag tag-culture">人文</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D4</div>
+        <div class="spot-name">特克斯八卦城</div>
+        <div class="spot-desc">全球唯一无红绿灯的八卦形城市，登楼俯瞰格局。</div>
+        <div class="spot-tags"><span class="tag tag-culture">人文</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D4</div>
+        <div class="spot-name">昭苏湿地公园</div>
+        <div class="spot-desc">伊犁马下河表演，天马之乡，壮观震撼。</div>
+        <div class="spot-tags"><span class="tag tag-grass">草原</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D5</div>
+        <div class="spot-name">夏塔景区</div>
+        <div class="spot-desc">天山深处的世外秘境，汗腾格里峰雪山群，骑马进谷。</div>
+        <div class="spot-tags"><span class="tag tag-mountain">雪山</span><span class="tag tag-grass">河谷</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D6 · D7</div>
+        <div class="spot-name">那拉提草原</div>
+        <div class="spot-desc">空中草原俯瞰伊犁河谷，6月底野花盛开，骑马追风。</div>
+        <div class="spot-tags"><span class="tag tag-grass">草原</span><span class="tag tag-mountain">雪山</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D8</div>
+        <div class="spot-name">巴音布鲁克</div>
+        <div class="spot-desc">九曲十八弯开都河，天鹅湖，夕阳时分最美草原奇景。</div>
+        <div class="spot-tags"><span class="tag tag-lake">天鹅湖</span><span class="tag tag-grass">草原</span></div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-num">D9</div>
+        <div class="spot-name">独库公路·神秘大峡谷</div>
+        <div class="spot-desc">中国最美公路之一，翻越天山；库车红色砂岩峡谷。</div>
+        <div class="spot-tags"><span class="tag tag-canyon">峡谷</span><span class="tag tag-mountain">天山</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ITINERARY -->
+<section class="section" id="itinerary">
+  <div class="container">
+    <div class="section-label">每日行程</div>
+    <div class="section-title">详细时刻安排</div>
+
+    <!-- D1 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">01</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月23日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">乌鲁木齐 <span class="day-route-arrow">→</span> 赛里木湖</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">08:00</div>
+            <div class="row-content">地窝堡机场/市区租车行<strong>取车</strong>（建议提前预订SUV或四驱，押金约¥2000）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">08:30</div>
+            <div class="row-content">出发，沿 <strong>G30连霍高速</strong> 向西，途中在精河服务区休息加油</div>
+            <div class="row-drive">约7h · 600km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">12:30</div>
+            <div class="row-content">精河服务区午餐+加油（此后加油站间距变大，务必加满）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">16:00</div>
+            <div class="row-content"><strong>赛里木湖景区</strong>购票入园 <span class="ticket-badge">需买票 ¥90</span>，驾车至南岸观景台看日落雪山倒影</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">18:30</div>
+            <div class="row-content">办理入住，晚餐</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：赛里木湖景区周边（松树头 / 三台村一带）</div>
+      </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">02</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月24日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">赛里木湖环湖 <span class="day-route-arrow">→</span> 果子沟 <span class="day-route-arrow">→</span> 伊宁</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">06:30</div>
+            <div class="row-content">早起赴湖边看<strong>日出</strong>（北天山雪峰倒映湖面，全程最佳拍摄时机）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">08:30</div>
+            <div class="row-content">自驾<strong>环湖公路</strong>（约90km），沿途多个停车观景台，重点：湖南岸无名观景台</div>
+            <div class="row-drive">环湖2.5h</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">午餐（景区餐厅或湖边野餐）后出发前往果子沟</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">14:30</div>
+            <div class="row-content"><strong>果子沟大桥</strong>观景台，俯瞰峡谷全貌 <span class="free-badge">免费</span></div>
+            <div class="row-drive">约40min · 40km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">15:30</div>
+            <div class="row-content">继续向西，前往伊宁市区</div>
+            <div class="row-drive">约1.5h · 100km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">17:30</div>
+            <div class="row-content">抵达伊宁，逛<strong>六星街</strong>，晚餐体验伊犁夜市</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：伊宁市区（连住2晚）</div>
+      </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">03</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月25日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">伊宁市区深度游（全天轻松日）</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">09:00</div>
+            <div class="row-content"><strong>六星街</strong>步行游览（多民族融合建筑，拍照打卡，步行区域无需开车）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:00</div>
+            <div class="row-content"><strong>喀赞其民俗旅游区</strong>，体验维吾尔族传统民居与手工艺 <span class="ticket-badge">需买票 ¥45</span></div>
+            <div class="row-drive">市内15min</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">午餐：伊宁特色抓饭、烤包子、薄皮包子（当地人聚集的餐馆最佳）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">15:00</div>
+            <div class="row-content">自由活动：<strong>伊犁河</strong>边散步 / 当地集市购物手工艺品、干果</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">19:00</div>
+            <div class="row-content">伊宁夜市晚餐，提前休息备战次日</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：伊宁市区（全程最轻松的一天，专为缓解驾驶疲劳设计）</div>
+      </div>
+    </div>
+
+    <!-- D4 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">04</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月26日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">伊宁 <span class="day-route-arrow">→</span> 特克斯 <span class="day-route-arrow">→</span> 昭苏</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">09:00</div>
+            <div class="row-content">出发前往特克斯，沿<strong>G218国道</strong></div>
+            <div class="row-drive">约1.5h · 100km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">10:30</div>
+            <div class="row-content"><strong>特克斯八卦城</strong>：登中心八卦楼俯瞰全城格局（全球唯一无红绿灯八卦形城市）<span class="ticket-badge">需买票 ¥30</span></div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">12:30</div>
+            <div class="row-content">特克斯县城内午餐，顺便加油</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">14:00</div>
+            <div class="row-content">前往昭苏</div>
+            <div class="row-drive">约1h · 60km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">15:00</div>
+            <div class="row-content"><strong>昭苏湿地公园</strong>：观看伊犁马下河表演（天马入河，蹄花溅水，极具震撼感）<span class="ticket-badge">需买票 ¥50</span></div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">17:30</div>
+            <div class="row-content">办理入住昭苏县城，晚餐</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：昭苏县城（连住2晚）</div>
+      </div>
+    </div>
+
+    <!-- D5 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">05</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月27日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">昭苏 <span class="day-route-arrow">→</span> 夏塔景区（全天）</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">08:30</div>
+            <div class="row-content">出发前往夏塔旅游区大门</div>
+            <div class="row-drive">约1h · 50km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">09:30</div>
+            <div class="row-content"><strong>夏塔景区</strong>购票换乘 <span class="ticket-badge">需买票 ¥120</span>（私家车禁止入内，景区内交通票含在内）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">10:00</div>
+            <div class="row-content">乘景区车辆深入夏塔河谷，一路欣赏<strong>汗腾格里峰雪山群</strong>（4000m+）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:00</div>
+            <div class="row-content">徒步夏塔古道沿线 / 骑马进入河谷（骑马约¥150/小时，强烈推荐）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">自备干粮在景区内午餐（景区内餐饮极为有限）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">17:00</div>
+            <div class="row-content">乘景区车辆返回大门，取自驾车返回昭苏</div>
+            <div class="row-drive">返程1h</div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：昭苏县城</div>
+      </div>
+    </div>
+
+    <!-- D6 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">06</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月28日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">昭苏 <span class="day-route-arrow">→</span> 特克斯 <span class="day-route-arrow">→</span> 那拉提</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">07:30</div>
+            <div class="row-content">早出发，沿<strong>G218国道</strong>经特克斯向东</div>
+            <div class="row-drive">约3.5h · 230km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:00</div>
+            <div class="row-content">特克斯县城短暂休息、加油（此段重要加油点）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">抵达<strong>那拉提旅游区（新源县）</strong>，午餐</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">14:00</div>
+            <div class="row-content">购票入那拉提景区 <span class="ticket-badge">需买票 ¥160</span>，乘观光车上空中草原，俯瞰整片伊犁河谷</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">16:30</div>
+            <div class="row-content">可选骑马体验（¥100-200，景区内多处马场可选）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">18:30</div>
+            <div class="row-content">下山，办理入住那拉提镇</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：那拉提镇（连住2晚）</div>
+      </div>
+    </div>
+
+    <!-- D7 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">07</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月29日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">那拉提深度游（全天）</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">07:30</div>
+            <div class="row-content">早入园，赶在游客高峰前上<strong>空中草原</strong>（晨光中草原最为空灵）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">09:00</div>
+            <div class="row-content">游览<strong>河谷草原区</strong>，近距离体验牧民生活，看伊犁河蜿蜒流淌</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:00</div>
+            <div class="row-content">徒步景区内高山草甸步道（6月底野花盛开，满山金色与白色野花）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">景区内或返回那拉提镇午餐</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">15:00</div>
+            <div class="row-content"><strong>那拉提东区</strong>观景台，傍晚光线下草原呈金色，拍摄最佳时段</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">18:00</div>
+            <div class="row-content">返回住宿，早睡备战次日转场</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：那拉提镇</div>
+      </div>
+    </div>
+
+    <!-- D8 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">08</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">6月30日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">那拉提 <span class="day-route-arrow">→</span> 巴音布鲁克</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">09:00</div>
+            <div class="row-content">出发，沿<strong>S316省道/217国道</strong>翻越天山山口，沿途风景极佳建议走走停停</div>
+            <div class="row-drive">约2.5h · 150km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:30</div>
+            <div class="row-content">抵达<strong>巴音布鲁克镇</strong>，午餐（哈萨克族特色餐厅，手抓肉）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content"><strong>巴音布鲁克天鹅湖景区</strong>购票 <span class="ticket-badge">需买票 ¥127</span>，换乘景区区间车</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">14:00</div>
+            <div class="row-content"><strong>九曲十八弯观景台</strong>（开都河蜿蜒草原的经典景观）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">17:30</div>
+            <div class="row-content">⭐ <strong>重点！</strong> 日落时分返回九曲十八弯，金红色夕阳将河湾染成油画，是全程最惊艳一幕</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">19:30</div>
+            <div class="row-content">返回住宿</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：巴音布鲁克镇</div>
+      </div>
+    </div>
+
+    <!-- D9 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">09</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">7月1日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">巴音布鲁克 <span class="day-route-arrow">→</span> 独库公路 <span class="day-route-arrow">→</span> 神秘大峡谷 <span class="day-route-arrow">→</span> 库车</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">08:00</div>
+            <div class="row-content">出发走<strong>G217独库公路南段</strong>（全程约280km，此段是精华，建议全程放慢享受）</div>
+            <div class="row-drive">约5-6h（含停留）</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">09:30</div>
+            <div class="row-content">途经<strong>乔尔玛烈士陵园</strong>（可停车致敬，了解独库公路修建历史）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">11:00</div>
+            <div class="row-content">翻越<strong>天山达坂</strong>（海拔3000m+，气温骤降，注意添衣，可能遇到积雪）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">13:00</div>
+            <div class="row-content">山口附近路边简单午餐（自备干粮，此段无服务区）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">15:00</div>
+            <div class="row-content"><strong>天山神秘大峡谷（库车）</strong>，红色砂岩峡谷，步行游览约2小时 <span class="ticket-badge">需买票 ¥70</span></div>
+            <div class="row-drive">独库出口→峡谷 30min</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">17:30</div>
+            <div class="row-content">前往库车市区，晚餐体验南疆维吾尔族美食（烤馕、烤肉）</div>
+            <div class="row-drive">约20min · 20km</div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>住宿：库车市区 ⚠️ 出发前务必确认独库公路通行状态</div>
+      </div>
+    </div>
+
+    <!-- D10 -->
+    <div class="day-block">
+      <div class="day-label">
+        <div class="day-num">10</div>
+        <div class="day-word">DAY</div>
+        <div class="day-date">7月2日</div>
+      </div>
+      <div class="day-content">
+        <div class="day-route">库车 <span class="day-route-arrow">→</span> 乌鲁木齐（还车）</div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="row-time">08:00</div>
+            <div class="row-content">早餐后出发，沿<strong>G3012/G3016高速</strong>向北</div>
+            <div class="row-drive">约4.5h · 440km</div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">12:30</div>
+            <div class="row-content">抵达乌鲁木齐，前往<strong>租车还车点</strong>（预留1小时验车缓冲时间）</div>
+            <div></div>
+          </div>
+          <div class="day-row">
+            <div class="row-time">14:00</div>
+            <div class="row-content">还车完成，行程圆满结束 🎉</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="sleep-row"><div class="sleep-dot"></div>行程结束，可安排当晚或次日航班返程</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NAVIGATION POINTS -->
+<section class="section" id="navigation">
+  <div class="container">
+    <div class="section-label">导航地点</div>
+    <div class="section-title">高德地图一键导航</div>
+    <p style="color: var(--text-mid); font-size: 13px; margin-bottom: 24px; line-height: 1.8;">
+      以下为每个关键地点的高德地图导航链接。建议出发前下载<strong style="color: var(--brown)">高德地图新疆离线包</strong>，昭苏/夏塔/巴音布鲁克一带信号较弱。
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;">
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D1 · 出发</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">乌鲁木齐地窝堡国际机场</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">取车后直接出发，沿G30高速向西</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=87.4742,43.9071&name=乌鲁木齐地窝堡国际机场&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D1-D2 · 第一站</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">赛里木湖景区（松树头入口）</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">博尔塔拉蒙古自治州博乐市 · 门票¥90</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=81.1716,44.5968&name=赛里木湖景区&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D2 · 途经</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">果子沟大桥观景台</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">霍城县 · 免费</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=81.1401,44.4761&name=果子沟大桥&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D2-D3 · 住宿地</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">伊宁市六星街</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">伊犁哈萨克自治州伊宁市</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=81.3273,43.9771&name=伊宁市六星街&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D4</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">特克斯八卦城</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">伊犁州特克斯县 · 登楼¥30</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=81.8399,43.2151&name=特克斯八卦城&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D4</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">昭苏湿地公园</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">昭苏县 · ¥50（含天马表演）</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=80.9683,42.9524&name=昭苏湿地公园&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D5</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">夏塔旅游区大门</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">昭苏县 · ¥120（含景区内交通）</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=80.5884,42.6646&name=夏塔旅游区&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D6-D7</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">那拉提旅游区游客中心</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">新源县那拉提镇 · ¥160（含观光车）</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=84.2290,43.2925&name=那拉提旅游区&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D8</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">巴音布鲁克天鹅湖景区</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">和静县 · ¥127（含区间车）</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=84.1518,43.0341&name=巴音布鲁克天鹅湖&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D9</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">天山神秘大峡谷</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">库车市 G217国道 · ¥70</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=83.0581,42.1144&name=天山神秘大峡谷&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+      <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 16px;">
+        <div style="font-size: 11px; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px;">D10 · 终点</div>
+        <div style="font-size: 14px; font-weight: 500; color: var(--brown); margin-bottom: 6px;">乌鲁木齐地窝堡国际机场（还车）</div>
+        <div style="font-size: 12px; color: var(--text-light); margin-bottom: 10px;">沿G3012/G3016高速北上 · 约4.5h</div>
+        <a class="nav-link" href="https://uri.amap.com/marker?position=87.4742,43.9071&name=乌鲁木齐地窝堡国际机场&callnative=1" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          高德导航
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIPS -->
+<section class="section" id="tips">
+  <div class="container">
+    <div class="section-label">旅行贴士</div>
+    <div class="section-title">出发前必知</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-title">🚗 租车建议</div>
+        <div class="tip-body">提前1-2周在携程/神州租车预订SUV或四驱，夏塔/巴音布鲁克部分路段路况一般。押金约¥2000，建议购买全险。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">⛽ 加油策略</div>
+        <div class="tip-body">每进城镇即加满。特别注意：昭苏→那拉提（约230km）、巴音布鲁克→库车（独库公路段）加油站极少，务必满箱出发。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🗺️ 导航离线</div>
+        <div class="tip-body">提前下载高德地图新疆离线包。夏塔景区、巴音布鲁克、独库公路山区信号极弱，离线地图是必备。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🎫 提前预约</div>
+        <div class="tip-body">那拉提景区（旺季限流明显）、夏塔景区（周末限流）建议在官方小程序提前购票，避免现场排队。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🧥 保暖必备</div>
+        <div class="tip-body">6月底北疆山区早晚温差大（0-10°C），夏塔/赛里木湖/独库达坂一带需备厚外套、防风衣、手套。白天可能晒热，需要能快速增减衣物。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🛣️ 独库公路</div>
+        <div class="tip-body">出发前拨打 0997-2125122 或查询"新疆交通信息网"确认G217独库公路通行状态。如遇封路需绕行G3012高速（耗时增加约3小时）。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🏕️ 景区内交通</div>
+        <div class="tip-body">喀纳斯、夏塔、那拉提核心区均禁止私家车进入，需在景区大门停车换乘区间车或景区大巴，购票时注意含不含交通票。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">⏰ 新疆时间</div>
+        <div class="tip-body">新疆实际使用北京时间，但日落往往在21-22点。当地人作息普遍偏晚，午饭在14点后，晚饭在20点后均属正常。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-title">🍖 特色美食</div>
+        <div class="tip-body">伊犁：抓饭、手抓肉、薄皮包子；昭苏：伊犁马奶酒、奶酪；库车：馕、烤肉；全程随处可见烤包子和拌面，价格实惠。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUDGET -->
+<section class="section" id="budget">
+  <div class="container">
+    <div class="section-label">费用参考</div>
+    <div class="section-title">景区门票汇总</div>
+    <div style="background: var(--warm-white); border: 1px solid var(--sand); border-radius: 6px; padding: 24px; max-width: 600px;">
+      <div class="budget-row">
+        <div class="budget-item">赛里木湖景区</div>
+        <div class="budget-note">D1-D2</div>
+        <div class="budget-amt">¥90</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">果子沟大桥</div>
+        <div class="budget-note">D2 · 观景台</div>
+        <div class="budget-amt" style="color: var(--green-muted)">免费</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">喀赞其民俗旅游区</div>
+        <div class="budget-note">D3</div>
+        <div class="budget-amt">¥45</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">特克斯八卦城（登楼）</div>
+        <div class="budget-note">D4</div>
+        <div class="budget-amt">¥30</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">昭苏湿地公园</div>
+        <div class="budget-note">D4 · 含天马表演</div>
+        <div class="budget-amt">¥50</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">夏塔旅游区</div>
+        <div class="budget-note">D5 · 含景区内交通</div>
+        <div class="budget-amt">¥120</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">那拉提旅游区</div>
+        <div class="budget-note">D6-D7 · 含观光车</div>
+        <div class="budget-amt">¥160</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">巴音布鲁克天鹅湖</div>
+        <div class="budget-note">D8 · 含区间车</div>
+        <div class="budget-amt">¥127</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-item">天山神秘大峡谷</div>
+        <div class="budget-note">D9</div>
+        <div class="budget-amt">¥70</div>
+      </div>
+      <div style="height: 1px; background: var(--brown); opacity: 0.2; margin: 8px 0;"></div>
+      <div class="budget-row">
+        <div class="budget-item" style="font-weight: 500; color: var(--brown);">门票合计（每人）</div>
+        <div class="budget-note">以上均为参考价</div>
+        <div class="budget-amt" style="font-size: 18px; color: var(--terracotta);">≈ ¥692</div>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--text-light); margin-top: 12px;">以上价格为2024-2025年参考价格，实际出行前建议在官方渠道确认最新票价。骑马体验（¥100-200/次）、景区内额外小交通等费用未计入。</p>
+  </div>
+</section>
+
+<footer>
+  <strong>新疆伊犁 · 十日自驾旅行手册</strong><br>
+  6月23日 — 7月2日 · 全程约2300公里<br>
+  <span style="margin-top: 8px; display: block; font-size: 10px; opacity: 0.5;">出行前请确认独库公路路况 · 提前预约那拉提 / 夏塔门票</span>
+</footer>
+
+<script>
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  const sections = ['overview','itinerary','navigation','tips','budget'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+
+  window.addEventListener('scroll', () => {
+    let current = 'overview';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    navBtns.forEach((btn, i) => {
+      btn.classList.toggle('active', sections[i] === current);
+    });
+  });
+</script>
+</body>
+</html>
